@@ -1,0 +1,61 @@
+version: "3.9"
+services:
+    app:
+        build: .
+        container_name: app-twgroup
+        restart: unless-stopped
+        tty: true
+        environment:
+            SERVICE_NAME: app-api
+            SERVICE_TAGS: dev
+        working_dir: /var/www/twgroup
+        extra_hosts:
+            - host.docker.internal:host-gateway
+        networks:
+            - app-network
+        volumes:
+            - ./:/var/www/twgroup
+            - ./.php/php.ini:/etc/php/8.3/fpm/php.ini
+        command: >
+           sh -c "
+            while ! mysqladmin ping -h db --silent; do
+                echo 'Esperando a que la base de datos esté lista...';
+                sleep 5;
+            done;
+            php artisan key:generate &&
+            php artisan migrate --force &&
+            php artisan db:seed --class=workspacesSeeder &&
+            service php8.3-fpm start &&
+            tail -f /dev/null
+            "
+    webserver:
+        image: nginx:alpine
+        container_name: server-twgroup
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./:/var/www/twgroup
+            - ./.nginx:/etc/nginx/conf.d/
+        networks:
+            - app-network
+    db:
+        image: mysql:8.0
+        container_name: db-twgroup
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_DATABASE: booking
+            MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        networks:
+            - app-network
+       ## volumes:
+          #  - .\database\crowdb.sql:/var/BD/crowdb.sql
+networks:
+    app-network:
+        driver: bridge
