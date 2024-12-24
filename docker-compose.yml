@@ -17,14 +17,10 @@ services:
             - ./:/var/www/twgroup
             - ./.php/php.ini:/etc/php/8.3/fpm/php.ini
         command: >
-           sh -c "
-            while ! mysqladmin ping -h db --silent; do
-                echo 'Esperando a que la base de datos esté lista...';
-                sleep 5;
-            done;
+            sh -c "
             php artisan key:generate &&
-            php artisan migrate --force &&
-            php artisan db:seed --class=workspacesSeeder &&
+            php artisan migrate &&
+            php artisan db:seed --class=DatabaseSeeder &&
             service php8.3-fpm start &&
             tail -f /dev/null
             "
