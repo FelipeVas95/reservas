@@ -16,25 +16,27 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // crear roles
-        $adminRole = Role::create(['name' => 'administrador']);
-        $clientRole = Role::create(['name' => 'cliente']);
 
-        //crear permisos
-        Permission::create(['name' => 'gestionar salas']);
-        Permission::create(['name' => 'gestionar reservas']);
-        Permission::create(['name' => 'reservar espacios']);
-       
-        
+        // Verificar y crear roles
+        $adminRole = Role::firstOrCreate(['name' => 'administrador']);
+        $clientRole = Role::firstOrCreate(['name' => 'cliente']);
+
+        // Crear permisos solo si no existen
+        Permission::firstOrCreate(['name' => 'gestionar salas']);
+        Permission::firstOrCreate(['name' => 'gestionar reservas']);
+        Permission::firstOrCreate(['name' => 'reservar espacios']);
+
+
 
 
         // asignar permisos a roles
         $adminRole->givePermissionTo(['gestionar salas', 'gestionar reservas', 'reservar espacios']);
-        $clientRole->givePermissionTo('reservar espacios'); 
+        $clientRole->givePermissionTo('reservar espacios');
 
         //ejecutar demas seeders
-         $this->call([
-            UsersSeeder::class, 
-            WorkspacesSeeder::class, 
-        ]); 
+        $this->call([
+            UsersSeeder::class,
+            WorkspacesSeeder::class,
+        ]);
     }
 }
