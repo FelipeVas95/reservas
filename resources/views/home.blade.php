@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -56,17 +57,6 @@
                                     <h3> Registrate o inicia sesión para realizar las reservas</h3>
                                 </div>
                                 <div class="row modal-footer d-flex justify-content-center mt-3">
-
-                                {{--     <div class="col-md-4">
-                                        <a href="{{ route('register') }}" class="modal-footer d-flex justify-content-center">
-                                            <h3>Registrate</h3>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a class="modal-footer d-flex justify-content-center" href="{{ route('login') }}">
-                                            <h3>Iniciar Sesión</h3>
-                                        </a>
-                                    </div> --}}
                                 @endguest
                             </div>
                         </div>
