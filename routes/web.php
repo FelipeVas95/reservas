@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/booking_create', [BookingController::class, 'store'])->name('booking.save');
     //gestionar reservas
     Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
+    //salas
     Route::get('/workspaces', [WorkspacesController::class, 'index'])->name('workspaces.index');
     Route::post('/create_workspaces', [WorkspacesController::class, 'store'])->name('workspaces.create');
     //eliminar salas

@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Workspaces;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class WorkspacesController extends Controller
 {

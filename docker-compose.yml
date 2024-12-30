@@ -18,7 +18,6 @@ services:
             - ./.php/php.ini:/etc/php/8.3/fpm/php.ini
         command: >
             sh -c "
-            php artisan key:generate &&
             php artisan migrate &&
             php artisan db:seed --class=DatabaseSeeder &&
             service php8.3-fpm start &&

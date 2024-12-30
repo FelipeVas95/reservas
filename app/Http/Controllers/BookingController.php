@@ -21,7 +21,6 @@ class BookingController extends Controller
     {
         $user = User::find(Auth::id());
         $rol = $user->hasRole('administrador');
-
         $workspaceId = $request->input('workspace_id');
         $workspaces = Workspaces::all();
 

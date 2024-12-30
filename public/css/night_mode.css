@@ -7,3 +7,22 @@ body.dark-mode {
     background-color: #1e1e1e;
 }
 
+.dark-mode .card {
+    background-color: #454d55;
+    color: #ffffff;
+    border-color: #565e64;
+    /* Opcional, para ajustar el borde */
+}
+
+.dark-mode .modal-content {
+    background-color: #454d55;
+    /* Fondo oscuro para el contenido del modal */
+    color: #ffffff;
+    /* Texto blanco */
+    border-color: #565e64;
+    /* Opcional, para ajustar el borde */
+}
+
+.dark-mode .table{
+    color:#ffffff;
+}

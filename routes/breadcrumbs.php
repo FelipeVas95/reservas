@@ -1,20 +1,30 @@
-<?php
-use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
+<?php 
 
-Breadcrumbs::for('home', function ($trail) {
-$trail->push('Inicio', route('home'));
+use Diglactic\Breadcrumbs\Breadcrumbs;
+use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+
+//Home
+Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
+    $trail->push('home', route('home'));
 });
 
-Breadcrumbs::for('products.index', function ($trail) {
-$trail->parent('home');
-$trail->push('Productos', route('products.index'));
+//Gestion salas
+Breadcrumbs::for('workspaces', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Workspaces', route('booking.index'));
 });
 
-Breadcrumbs::for('product.show', function ($trail, $product) {
-$trail->parent('products.index');
-$trail->push($product->name, route('product.show', $product));
+//crear reservas
+Breadcrumbs::for('create_booking', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Create Booking', route('booking.create'));
 });
 
+//gestironar reservas
+Breadcrumbs::for('booking', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Booking', route('booking.create'));
+});
 
 
 ?>

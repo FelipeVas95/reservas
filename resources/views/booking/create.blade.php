@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {{ Breadcrumbs::render('create_booking') }}
+        </ol>
+    </nav>
     <div class="container">
 
         <div class="card">
