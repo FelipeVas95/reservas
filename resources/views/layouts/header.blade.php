@@ -3,8 +3,11 @@
         <div class="container-fluid">
             <div class="col-md-2 text-end">
                 <a class="button text-white" href="{{ route('home') }}">{{ config('app.name') }}</a>
-               
-                
+
+<button class="btn btn-dark d-md-none mb-3" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                aria-expanded="false" aria-controls="sidebarMenu">
+                <i class="fas fa-bars"></i> Menú
+            </button>
                 @auth
                     <button class="btn btn-primary mb-3" id="toggleSidebar">
                         <i class="fas fa-bars"></i>
@@ -18,17 +21,18 @@
                     <a class="button text-white" href="{{ route('register') }}">Registrate</a>
                 </div>
             @endguest
-          
-            <button id="toggle-dark-mode" class="btn btn-primary mb-3" ><i id="icon-dark-mode" class="fas fa-moon"></i></button>
-              @auth
+            
+            <button id="toggle-dark-mode" class="btn btn-primary mb-3"><i id="icon-dark-mode"
+                    class="fas fa-moon"></i></button>
+            @auth
                 <div class="content-center">
-                    
+
                     <div class="dropdown pb-1">
-                         
+
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/550/980/small/user_icon_001.jpg" alt="hugenerd" width="30" height="30"
-                                class="rounded-circle">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/000/550/980/small/user_icon_001.jpg"
+                                alt="hugenerd" width="30" height="30" class="rounded-circle">
                             <span class="d-none d-sm-inline mx-1">{{ Auth::user()->name }}</span>
                         </a>
                         <div class="dropdown">

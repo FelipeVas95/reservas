@@ -7,11 +7,20 @@ body.dark-mode {
     background-color: #1e1e1e;
 }
 
+
 .dark-mode .card {
     background-color: #454d55;
     color: #ffffff;
     border-color: #565e64;
     /* Opcional, para ajustar el borde */
+}
+.breadcrumb {
+    color: #000;
+    /* Texto oscuro por defecto */
+}
+.dark-mode .breadcrumb{
+        color: #fff;
+        /* Texto blanco en modo nocturno */
 }
 
 .dark-mode .modal-content {
@@ -26,3 +35,64 @@ body.dark-mode {
 .dark-mode .table{
     color:#ffffff;
 }
+
+
+
+ /* Estilo base para breadcrumbs */
+ .breadcrumb {
+     display: flex;
+     flex-wrap: wrap;
+     list-style: none;
+     padding: 0.5rem 1rem;
+     margin: 0;
+     background-color: #f8f9fa;
+     /* Fondo claro */
+     border-radius: 0.25rem;
+     font-size: 0.9rem;
+ }
+
+ .breadcrumb li {
+     display: inline;
+     color: #6c757d;
+     /* Texto gris oscuro */
+ }
+
+ .breadcrumb li a {
+     color: #007bff;
+     /* Enlaces azules */
+     text-decoration: none;
+ }
+
+ .breadcrumb li a:hover {
+     text-decoration: underline;
+ }
+
+ .breadcrumb li+li::before {
+     content: '>';
+     /* Separador */
+     color: #6c757d;
+     margin: 0 0.5rem;
+ }
+
+ /* Modo nocturno */
+ .dark-mode .breadcrumb {
+     background-color: #343a40;
+     /* Fondo oscuro */
+     color: #f8f9fa;
+     /* Texto claro */
+ }
+
+ .dark-mode .breadcrumb li {
+     color: #adb5bd;
+     /* Texto gris claro */
+ }
+
+ .dark-mode .breadcrumb li a {
+     color: #0dcaf0;
+     /* Enlaces azul claro */
+ }
+
+ .dark-mode .breadcrumb li+li::before {
+     color: #adb5bd;
+     /* Separador gris claro */
+ }

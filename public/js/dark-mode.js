@@ -23,3 +23,6 @@ toggleDarkMode.addEventListener("click", () => {
         document.getElementById("icon-dark-mode").classList.add("fa-moon");
     }
 });
+
+
+
