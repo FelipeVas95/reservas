@@ -25,5 +25,11 @@
     <script src="\js\dark-mode.js"></script>
     @include('layouts.footer')
 </body>
+<script>
+    document.getElementById('toggleSidebar').addEventListener('click', function () {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+    });
+</script>
 
 </html>

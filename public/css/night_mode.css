@@ -96,3 +96,31 @@ body.dark-mode {
      color: #adb5bd;
      /* Separador gris claro */
  }
+
+
+
+
+
+
+
+
+
+ .sidebar {
+     transition: all 0.3s ease-in-out;
+ }
+
+ .sidebar.collapsed {
+     width: 60px !important;
+     /* Ajusta el ancho al tamaño deseado */
+ }
+
+ .sidebar-content span {
+     transition: opacity 0.3s ease-in-out;
+ }
+
+ .sidebar.collapsed .sidebar-content span {
+     opacity: 0;
+     /* Oculta los textos */
+     visibility: hidden;
+     /* Evita que ocupen espacio */
+ }
