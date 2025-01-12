@@ -33,7 +33,7 @@ ENV NODE_VERSION=20
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -y nodejs
 
-WORKDIR /var/www/twgroup
+WORKDIR /var/www/reservas
 
 COPY package.json ./
 # Install Composer

@@ -2,19 +2,19 @@ version: "3.9"
 services:
     app:
         build: .
-        container_name: app-twgroup
+        container_name: app-reservas
         restart: unless-stopped
         tty: true
         environment:
             SERVICE_NAME: app-api
             SERVICE_TAGS: dev
-        working_dir: /var/www/twgroup
+        working_dir: /var/www/reservas
         extra_hosts:
             - host.docker.internal:host-gateway
         networks:
             - app-network
         volumes:
-            - ./:/var/www/twgroup
+            - ./:/var/www/reservas
             - ./.php/php.ini:/etc/php/8.3/fpm/php.ini
         command: >
             sh -c "
@@ -25,19 +25,19 @@ services:
             "
     webserver:
         image: nginx:alpine
-        container_name: server-twgroup
+        container_name: server-reservas
         restart: unless-stopped
         tty: true
         ports:
             - "8000:8000"
         volumes:
-            - ./:/var/www/twgroup
+            - ./:/var/www/reservas
             - ./.nginx:/etc/nginx/conf.d/
         networks:
             - app-network
     db:
         image: mysql:8.0
-        container_name: db-twgroup
+        container_name: db-reservas
         restart: unless-stopped
         tty: true
         ports:
