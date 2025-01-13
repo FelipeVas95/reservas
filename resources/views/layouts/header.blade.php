@@ -2,7 +2,7 @@
     <nav class="navbar bg-primary" style="height: 60px" data-bs-theme="dark">
         <div class="container-fluid">
             <div class="col-md-2 d-flex justify-content-between align-items-center text-start" id="cont_bton_collap">
-                <a id="name_app" class="button text-white" href="{{ route('home') }}">{{ config('app.name') }}</a>
+                <a id="name_app" class="button text-white" href="{{ route('home') }}"><img src="images/reservas.png" width="120px" height="45px" style="margin-left:4px;margin-bottom:6px"></a>
                 @auth
                     <button class="btn btn-primary mb-3" id="toggleSidebar">
                         <i id="icon_collapse" class="fas fa-bars"></i>
