@@ -63,7 +63,7 @@
                     </div>
                     <div class="card-footer">
                         <p style="font-size:16px;font-weight: bold;font-style: italic;margin-top: 10px;">
-                            Este sistema fue creado desde 0 en el Framework Laravel estrictamente por motivos educativos.
+                            Este sistema fue creado desde cero en el Framework Laravel estrictamente por motivos educativos.
                         </p>
 
                     </div>
